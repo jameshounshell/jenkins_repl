@@ -1,0 +1,17 @@
+# docker-compose.yml
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ~/jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+# 4326b502135043ef89c4871d8dd485d0
+# find password here ~/jenkins_data/secrets/initialAdminPassword (originally: /var/jenkins_home/secrets/initialAdminPassword)
